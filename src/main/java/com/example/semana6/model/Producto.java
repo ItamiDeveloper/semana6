@@ -1,12 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.example.semana6.model;
 
 import jakarta.persistence.*;
 import java.util.Date;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name = "producto")
@@ -18,14 +14,16 @@ public class Producto {
 
     private String nombre;
     private String categoria;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaVencimiento;
+
     private int stockMinimo;
     private int stockMaximo;
     private String marca;
     private double peso;
 
     // Getters y setters
-
     public Long getId() {
         return id;
     }
@@ -89,6 +87,4 @@ public class Producto {
     public void setPeso(double peso) {
         this.peso = peso;
     }
-    
 }
-
